@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">fitnessAss1</string>
+    <string name="fit_is_a_program_for_fitness_specialists_let_us_help_you_reach_the_best_version_of_you_enter_the_required_data_below_please">Fit is a program for fitness specialists. Let us help you reach the best version of you. Enter the required data below, please</string>
+    <string name="imgdump_description">Description of your button</string>
+</resources>
