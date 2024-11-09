@@ -30,6 +30,12 @@ public class DataCollect extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_data_collect);
 
+        Intent intent = getIntent();
+        textname = findViewById(R.id.textname);
+        String msg = intent.getStringExtra("data");
+        String msg2 = "Hi " + msg ;
+        textname.setText(msg2);
+
         edtheight = findViewById(R.id.edtheight);
         edtweight = findViewById(R.id.edtweight);
         edtage = findViewById(R.id.edtage);
@@ -38,6 +44,11 @@ public class DataCollect extends AppCompatActivity {
         String heightStr = edtheight.getText().toString();
         String weightStr = edtweight.getText().toString();
         String ageStr = edtage.getText().toString();
+
+        if (heightStr.isEmpty() || weightStr.isEmpty() || ageStr.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         int height = Integer.parseInt(heightStr);
         int weight = Integer.parseInt(weightStr);
@@ -55,11 +66,7 @@ public class DataCollect extends AppCompatActivity {
         });
 
 
-        Intent intent = getIntent();
-        textname = findViewById(R.id.textname);
-        String msg = intent.getStringExtra("data");
-        String msg2 = "Hi " + msg ;
-        textname.setText(msg2);
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
